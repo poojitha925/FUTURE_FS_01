@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Light mode variables ── */
+:root {
+  --bg-primary:    #fdf8f2;
+  --bg-secondary:  #faf0e4;
+  --bg-card:       #fff8ef;
+  --text-primary:  #3a2a1a;
+  --text-secondary:#6b4f35;
+  --text-muted:    #9c7a5a;
+  --accent:        #c96820;
+  --accent-light:  #f7c89e;
+  --accent-hover:  #a04e16;
+  --border:        #eecfaa;
+  --shadow:        rgba(180, 120, 60, 0.12);
+}
+
+/* ── Dark mode variables ── */
+.dark {
+  --bg-primary:    #2b1f14;
+  --bg-secondary:  #362717;
+  --bg-card:       #40301e;
+  --text-primary:  #fdf0e0;
+  --text-secondary:#e4c99a;
+  --text-muted:    #b8956a;
+  --accent:        #e88840;
+  --accent-light:  #5a3820;
+  --accent-hover:  #f2a96f;
+  --border:        #5a3e26;
+  --shadow:        rgba(0, 0, 0, 0.35);
+}
+
+/* ── Base ── */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'DM Sans', sans-serif;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  line-height: 1.7;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-light); }
+
+/* ── Utility classes using CSS vars ── */
+.bg-primary    { background-color: var(--bg-primary); }
+.bg-secondary  { background-color: var(--bg-secondary); }
+.bg-card       { background-color: var(--bg-card); }
+.text-primary  { color: var(--text-primary); }
+.text-secondary{ color: var(--text-secondary); }
+.text-muted    { color: var(--text-muted); }
+.text-accent   { color: var(--accent); }
+.border-theme  { border-color: var(--border); }
+.shadow-theme  { box-shadow: 0 4px 24px var(--shadow); }
+
+/* ── Blob background shapes ── */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Section padding ── */
+.section-pad {
+  padding: 5rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section-pad { padding: 6rem 2rem; }
+}
+
+/* ── Smooth card hover ── */
+.card-hover {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 36px var(--shadow);
+}
+
+/* ── Tag pill ── */
+.tag {
+  display: inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid var(--border);
+  transition: background-color 0.2s;
+}
+.tag:hover {
+  background-color: var(--border);
+}
+
+/* ── Btn primary ── */
+.btn-primary {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  border-radius: 999px;
+  background-color: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.25s ease, transform 0.2s ease;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background-color: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+/* ── Btn outline ── */
+.btn-outline {
+  display: inline-block;
+  padding: 0.68rem 1.8rem;
+  border-radius: 999px;
+  background-color: transparent;
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 2px solid var(--accent);
+  transition: background-color 0.25s ease, transform 0.2s ease, color 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-outline:hover {
+  background-color: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
